@@ -178,7 +178,7 @@ textarea{font-size:.85rem}
 .fbk.show{transform:none}.fbk.good{background:var(--okbg);color:#0E5A3A}.fbk.bad{background:var(--badbg);color:#932A2E}
 .fbh{font-family:var(--fd);font-weight:600;font-size:1.45rem}.fbt{font-weight:800;margin:4px 0}.fbn{font-size:.9rem;margin:2px 0}
 .fbk .btn{margin-top:12px}
-.ex.in{animation:in .38s ease both}
+.ex.in{animation:exIn .42s cubic-bezier(.2,.8,.2,1) both}
 .tag{font-size:.8rem;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin:8px 0 10px}
 .qq{font-family:var(--fd);font-weight:600;font-size:1.9rem;margin:8px 0 18px;line-height:1.2;overflow-wrap:anywhere}
 .qq.sm{font-size:1.35rem}
@@ -282,6 +282,17 @@ textarea{font-size:.85rem}
 .tuca .zz text{animation:zz 2.4s ease-in-out infinite}.tuca .zz text+text{animation-delay:.6s}
 
 @keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.view.fr{animation:vR .45s cubic-bezier(.2,.8,.2,1) both}.view.fl{animation:vL .45s cubic-bezier(.2,.8,.2,1) both}
+.view>*{animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+.view>*:nth-child(2){animation-delay:.05s}.view>*:nth-child(3){animation-delay:.1s}.view>*:nth-child(4){animation-delay:.15s}.view>*:nth-child(5){animation-delay:.2s}.view>*:nth-child(6){animation-delay:.25s}.view>*:nth-child(n+7){animation-delay:.3s}
+.ex.in .o,.ex.in .chip,.ex.in .exr{animation:rise .45s cubic-bezier(.2,.8,.2,1) both}
+.ex.in .o:nth-child(2){animation-delay:.05s}.ex.in .o:nth-child(3){animation-delay:.1s}.ex.in .o:nth-child(4){animation-delay:.15s}.ex.in .o:nth-child(5){animation-delay:.2s}
+.pill{position:relative}.pill button{position:relative;z-index:1}.pill button.on{background:transparent}
+.pill .ind{position:absolute;z-index:0;top:6px;bottom:6px;border-radius:999px;background:var(--soft);transition:left .45s cubic-bezier(.2,.9,.25,1.15),width .45s cubic-bezier(.2,.9,.25,1.15)}
+@keyframes vR{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes vL{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes exIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
 @keyframes up{from{transform:translateY(100%)}to{transform:none}}
 @keyframes slide{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}}
@@ -306,7 +317,7 @@ textarea{font-size:.85rem}
 </head><body>
 <main id="m"></main>
 <nav class="bar" aria-label="Secciones">
-<div class="pill" id="tb">
+<div class="pill" id="tb"><i class="ind" id="tind"></i>
 <button data-t="aprender" onclick="tab('aprender')"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/></svg>Aprender</button>
 <button data-t="jugar" onclick="tab('jugar')"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r=".9"/><circle cx="17.8" cy="13.8" r=".9"/></svg>Jugar</button>
 <button data-t="yo" onclick="tab('yo')"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg>Yo</button>
@@ -529,11 +540,17 @@ function study(){closeSheet();const p=plan();if(p.t=='rev')startRev(0);else if(p
 /* ================= pestañas ================= */
 let T='aprender';
 const VW={aprender,jugar,yo};
-function tab(t){T=t;const v=document.createElement('div');v.className='view';v.innerHTML=VW[t]();$('#m').replaceChildren(v);
+const TORD=['aprender','jugar','yo'];
+function tab(t){const pv=T;T=t;const v=document.createElement('div');v.className='view'+(pv&&pv!==t?(TORD.indexOf(t)>TORD.indexOf(pv)?' fr':' fl'):'');v.innerHTML=VW[t]();$('#m').replaceChildren(v);
  document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));scrollTo(0,0);
  $('#go').classList.toggle('need',minDay(today())<S.gmin);
  setTimeout(()=>{const r=$('#rfg');if(r)r.style.strokeDashoffset=r.dataset.o},60);
- document.querySelectorAll('.wr').forEach(b=>b.onclick=()=>say(b.dataset.w))}
+ document.querySelectorAll('.wr').forEach(b=>b.onclick=()=>say(b.dataset.w));
+ const on=document.querySelector('#tb button.on'),ind=$('#tind');if(on&&ind){ind.style.left=on.offsetLeft+'px';ind.style.width=on.offsetWidth+'px'}
+ countUp(document.querySelector('#m'))}
+function countUp(root){if(!root||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ root.querySelectorAll('.stg b,.stats b,.gbig,.chart small').forEach(el=>{const t=el.textContent.trim(),m=t.match(/^([^\d]*)(\d+)(.*)$/);if(!m||el.childElementCount)return;const to=+m[2];if(!to)return;const t0=performance.now();
+  const st=n=>{const k=Math.min(1,(n-t0)/800),v=Math.round(to*(1-Math.pow(1-k,3)));el.textContent=m[1]+v+m[3];if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)})}
 
 function aprender(){const st=streak(),m=minDay(today()),g=S.gmin,p=Math.min(1,m/g),pl=plan(),u=curUnit(),pool=P(u),pw=pool[today()%pool.length],fs=L[u].s[today()%L[u].s.length];
  const sleepy=S.n.ses>0&&!studied(today())&&!studied(today()-1),hr=new Date().getHours(),sal=X.greet[hr<12?0:hr<19?1:2];
@@ -717,7 +734,7 @@ function mic(target){const h=$('#heard'),m='Aquí no se puede usar el micrófono
  if(!h)return;if(!Rc){h.textContent=m;return}
  try{const r=new Rc();r.lang=X.code;r.onresult=ev=>{const t=ev.results[0][0].transcript;h.textContent='Oí: «'+t+'»'+(nz(t)==nz(target)?' · ¡Muy bien!':' · casi, otra vez')};r.onerror=()=>{h.textContent=m};r.start();h.textContent='Escuchando…'}catch(e){h.textContent=m}}
 
-function endHTML(title,sub,stats,extra,party){return `<div class="end"><div class="tc">${tuca(party?'party':'')}</div><h2>${title}</h2>${sub?`<div class="mut">${sub}</div>`:''}<div class="stats">${stats.map((s,i)=>`<div style="animation-delay:${.3+i*.1}s"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>${extra||''}</div>`}
+function endHTML(title,sub,stats,extra,party){setTimeout(()=>countUp($('#lb')),350);return `<div class="end"><div class="tc">${tuca(party?'party':'')}</div><h2>${title}</h2>${sub?`<div class="mut">${sub}</div>`:''}<div class="stats">${stats.map((s,i)=>`<div style="animation-delay:${.3+i*.1}s"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>${extra||''}</div>`}
 function finish(){track();if(Q.mode=='test')return finishTest();if(Q.mode=='mini')return finishMini();
  const acc=Q.sc?Q.ok/Q.sc:1,key=Q.u+'-'+Q.k,first=!S.prog[key];S.prog[key]=1;S.n.ses++;if(acc>=1)S.n.perfect++;save();
  $('#pbi').style.width='100%';$('#cmb').innerHTML='';
