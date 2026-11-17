@@ -1,5 +1,5 @@
-/* Português do zero: funciona sin conexión. La página se busca primero en internet (para recibir mejoras) y, sin señal, se usa la guardada. */
-const V='pt-v1';
+/* Tuca Idiomas: funciona sin conexión. La página se busca primero en internet (para recibir mejoras) y, sin señal, se usa la guardada. */
+const V='tuca-v2';
 const BASE=['./','index.html','manifest.webmanifest','icon-180.png','icon-192.png','icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(BASE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
