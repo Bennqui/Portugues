@@ -872,7 +872,9 @@ if(location.hostname.endsWith('github.io')){
  [['manifest','manifest.webmanifest'],['apple-touch-icon','icon-180.png']].forEach(([r,h])=>{const l=document.createElement('link');l.rel=r;l.href=h;document.head.appendChild(l)});
  const m=document.createElement('meta');m.name='apple-mobile-web-app-capable';m.content='yes';document.head.appendChild(m);
  const m2=document.createElement('meta');m2.name='apple-mobile-web-app-title';m2.content='Tuca Idiomas';document.head.appendChild(m2);
- if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{})}
+ if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+ /* pide al iPhone que no borre el progreso guardado aunque falte espacio */
+ try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{})}catch(e){}}
 loadLang(LG[ALL.lang]?ALL.lang:'pt');tab('aprender');checkBadges();
 </script>
 </body></html>
