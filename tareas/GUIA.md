@@ -40,3 +40,4 @@ Tuca Idiomas es la app de Cesar (venezolano, de Barquisimeto, habla español y y
 - **Unidad 47 «La fe y la Misa»**: Cesar es católico. Usa los textos litúrgicos oficiales de ese idioma (Padre Nuestro, «La paz esté contigo», respuestas de la Misa), copiados exactamente de una fuente católica oficial.
 - **Unidades 51 y 52**: repaso de lo más útil para el viaje; pueden reutilizar temas, pero las 12 palabras siguen siendo nuevas (expresiones útiles que falten).
 - Sin HTML ni los caracteres `<` `>`.
+- **Revisión final antes de publicar**: elige al azar 3 frases y 3 palabras de la unidad nueva y verifícalas en la web (diccionario o corpus) — ortografía, acentos, género y que suenen naturales. Si alguna falla, corrígela y revisa el resto de la unidad con más cuidado.

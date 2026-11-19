@@ -1,7 +1,7 @@
 /* Tuca Idiomas: funciona sin conexión. La página se busca primero en internet (para recibir mejoras) y, sin señal
    o si tarda más de 5 s, se usa la guardada. Nunca se guarda una página de error en lugar de la buena. */
-const V='tuca-v4';
-const BASE=['./','index.html','manifest.webmanifest','icon-180.png','icon-192.png','icon-512.png'];
+const V='tuca-v5';
+const BASE=['./','index.html','manifest.webmanifest','icon-180.png','icon-192.png','icon-512.png','assets/fuentes.css'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(BASE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);

@@ -3,8 +3,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <title>Tuca Idiomas</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="theme-color" content="#F1F8F4">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700;800&display=swap">
+<meta name="theme-color" content="#FBF7F1">
+<link rel="stylesheet" href="assets/fuentes.css">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tuca Idiomas">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
 /* Identidad propia: fresca y juguetona. Verde menta, amarillo sol y azul mar; Fredoka (redonda) para títulos y Nunito para leer.
    Tarjetas gruesas con sombra suave y botones con relieve, como fichas de juego. La mascota es Tuca, un tucán. */
@@ -316,15 +320,71 @@ textarea{font-size:16px}
 @keyframes outL{to{transform:rotateY(180deg) translateX(130%) rotate(10deg);opacity:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+<style id="diseno2">
+/* Diseño 2 (nov 2026): naranja Tuca para marca y acciones; el verde queda solo para «correcto». Fondo cálido. */
+:root{--bg:#FBF7F1;--line:#EFE6DA;--soft:#F6EEE4;--pri:#EE6A1F;--prid:#C4520F;--pris:#FDEBDD;--ink:#1F2A26;--mut:#6B7470;
+--sh:0 1px 0 var(--line),0 10px 28px rgba(90,60,30,.07);--e:cubic-bezier(.2,.8,.2,1)}
+.btn{background:var(--pri);box-shadow:0 5px 0 var(--prid)}.btn:active{box-shadow:0 0 0 var(--prid)}
+.pb{background:var(--line)}
+.fbk.good .btn{background:var(--g);box-shadow:0 5px 0 var(--gd)}.fbk.bad .btn{background:var(--bad);box-shadow:0 5px 0 var(--badd)}
+.kk,.lbl{color:var(--pri)}
+.seg button.on,.vchips button.on,.week span.on,.tg.on,.dots i.on{background:var(--pri)}
+.dots i.done{background:color-mix(in srgb,var(--pri) 40%,#fff)}
+.rfg{stroke:var(--pri)}.chart i{background:var(--pri)}.gbig{color:var(--pri)}.cj b{color:var(--prid)}.lv i.on{background:var(--pri)}
+input:focus,textarea:focus{border-color:var(--pri)}
+.study{background:linear-gradient(135deg,#F7813A,#E25E14);box-shadow:0 6px 0 var(--prid),0 14px 30px rgba(226,94,20,.26)}
+.study:active{box-shadow:0 1px 0 var(--prid)}
+/* barra inferior: un solo bloque con «Estudiar» integrado */
+.bar .pill{flex:1;align-items:stretch}
+.pill button.on{color:var(--prid)}
+.pill .ind{background:var(--pris)}
+.pill .go{position:relative;width:auto;height:auto;flex:1.15;border-radius:999px;background:var(--pri);color:#fff;box-shadow:0 3px 0 var(--prid),0 8px 18px rgba(226,94,20,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:6px 4px 5px;margin-left:4px;font-size:.74rem;font-weight:800;z-index:1}
+.pill .go:active{transform:translateY(3px);box-shadow:0 0 0 var(--prid)}
+.pill .go .gob{display:grid;place-items:center;height:23px}
+.pill .go svg{width:19px;height:19px;fill:#fff;stroke:none;margin-left:2px}
+.pill .go.need::after{inset:-4px;border-radius:999px;border-color:var(--pri)}
+/* iconos de línea en lugar de emojis en el menú */
+.li{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em;display:inline-block}
+.gme .li{width:28px;height:28px;color:color-mix(in srgb,var(--c) 85%,#000)}
+.sti .li{width:30px;height:30px;color:#fff}.stp .li{width:22px;height:22px;fill:currentColor}
+.bdg .li{width:30px;height:30px;color:var(--pri);display:block;margin:2px auto 6px}.bdg .off .li{color:var(--mut);opacity:.55}
+.nd .li{width:26px;height:26px}.ug .li{width:20px;height:20px}.seg .li{width:17px;height:17px;margin-right:4px}
+.shi .li{width:34px;height:34px}.te .li{width:26px;height:26px;color:var(--pri)}
+.chipst .li{color:var(--pri)}.pce .li{width:24px;height:24px;color:var(--mut)}
+.bigi .li{width:64px;height:64px;color:var(--pri);stroke-width:1.6}
+/* transiciones entre pestañas (View Transitions) */
+.bar{view-transition-name:barra}
+::view-transition-old(root){animation:vtOut .26s var(--e) both}
+::view-transition-new(root){animation:vtIn .42s var(--e) both}
+html[data-vt=l]::view-transition-old(root){animation-name:vtOutL}
+html[data-vt=l]::view-transition-new(root){animation-name:vtInL}
+::view-transition-group(barra){animation:none}
+@keyframes vtOut{to{opacity:0;transform:translateX(-36px) scale(.985);filter:blur(2px)}}
+@keyframes vtIn{from{opacity:0;transform:translateX(44px) scale(.985);filter:blur(3px)}}
+@keyframes vtOutL{to{opacity:0;transform:translateX(36px) scale(.985);filter:blur(2px)}}
+@keyframes vtInL{from{opacity:0;transform:translateX(-44px) scale(.985);filter:blur(3px)}}
+/* entrada escalonada de tarjetas */
+.view>*{animation:rise .5s var(--e) both}
+.view>*:nth-child(2){animation-delay:.04s}.view>*:nth-child(3){animation-delay:.08s}.view>*:nth-child(4){animation-delay:.12s}
+.view>*:nth-child(5){animation-delay:.16s}.view>*:nth-child(6){animation-delay:.2s}.view>*:nth-child(n+7){animation-delay:.24s}
+/* ejercicios: la tarjeta entra deslizando y la barra avanza con resorte */
+.ex.in{animation:exIn2 .3s var(--e) both}
+@keyframes exIn2{from{opacity:0;transform:translateX(48px) scale(.98)}to{opacity:1;transform:none}}
+.pb i{background:linear-gradient(90deg,var(--pri),#F7A23A);transition:width .6s cubic-bezier(.34,1.56,.64,1)}
+.vnote{display:flex;gap:10px;align-items:flex-start;background:var(--pris);border-radius:16px;padding:12px 14px;margin:10px 0;font-size:.9rem;color:#6A3A12}
+.vnote .li{color:var(--pri);width:20px;height:20px;flex:none;margin-top:2px}
+@media (prefers-reduced-motion:reduce){.view>*,.ex.in{animation:none!important}::view-transition-old(root),::view-transition-new(root){animation:none!important}}
+</style>
 </head><body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" />  <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />  <circle cx="12" cy="8" r="6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14" />  <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4" />  <path d="M16 2v4" />  <rect width="18" height="18" x="3" y="4" rx="2" />  <path d="M3 10h18" /></symbol><symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />  <circle cx="7" cy="17" r="2" />  <path d="M9 17h6" />  <circle cx="17" cy="17" r="2" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />  <path d="m9 12 2 2 4-4" /></symbol><symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />  <path d="m15 9-6 6" />  <path d="m9 9 6 6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />  <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-compass" viewBox="0 0 24 24"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" />  <circle cx="12" cy="12" r="10" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />  <polyline points="7 10 12 15 17 10" />  <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />  <line x1="4" x2="4" y1="22" y2="15" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-gamepad-2" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11" />  <line x1="8" x2="8" y1="9" y2="13" />  <line x1="15" x2="15.01" y1="12" y2="12" />  <line x1="18" x2="18.01" y1="10" y2="10" />  <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" /></symbol><symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />  <path d="M22 10v6" />  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol><symbol id="i-headphones" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />  <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />  <path d="M12 16v-4" />  <path d="M12 8h.01" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" />  <path d="m4 14 6-6 2-3" />  <path d="M2 5h12" />  <path d="M7 2h1" />  <path d="m22 22-5-10-5 10" />  <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol><symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />  <path d="M9 18h6" />  <path d="M10 22h4" /></symbol><symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4" />  <path d="m3 7 2 2 4-4" />  <path d="M13 6h8" />  <path d="M13 12h8" />  <path d="M13 18h8" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" />  <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-luggage" viewBox="0 0 24 24"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />  <path d="M10 20h4" />  <circle cx="16" cy="20" r="2" />  <circle cx="8" cy="20" r="2" /></symbol><symbol id="i-map" viewBox="0 0 24 24"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" />  <path d="M15 5.764v15" />  <path d="M9 3.236v15" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />  <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></symbol><symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />  <line x1="12" x2="12" y1="19" y2="22" /></symbol><symbol id="i-notebook-pen" viewBox="0 0 24 24"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />  <path d="M2 6h4" />  <path d="M2 10h4" />  <path d="M2 14h4" />  <path d="M2 18h4" />  <path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1" />  <rect x="6" y="4" width="4" height="16" rx="1" /></symbol><symbol id="i-pencil" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />  <path d="m15 5 4 4" /></symbol><symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></symbol><symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" />  <path d="M3 11v-1a4 4 0 0 1 4-4h14" />  <path d="m7 22-4-4 4-4" />  <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />  <path d="M3 3v5h5" /></symbol><symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3" />  <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />  <circle cx="18" cy="5" r="3" /></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />  <circle cx="12" cy="12" r="3" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" />  <circle cx="6" cy="12" r="3" />  <circle cx="18" cy="19" r="3" />  <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />  <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4" />  <path d="m18 2 4 4-4 4" />  <path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22" />  <path d="M2 6h1.972a4 4 0 0 1 3.6 2.2" />  <path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />  <path d="M20 3v4" />  <path d="M22 5h-4" />  <path d="M4 17v2" />  <path d="M5 18H3" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />  <circle cx="12" cy="12" r="6" />  <circle cx="12" cy="12" r="2" /></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />  <path d="M4 22h16" />  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></symbol><symbol id="i-turtle" viewBox="0 0 24 24"><path d="m12 10 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a8 8 0 1 0-16 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3l2-4h4Z" />  <path d="M4.82 7.9 8 10" />  <path d="M15.18 7.9 12 10" />  <path d="M16.93 10H20a2 2 0 0 1 0 4H2" /></symbol><symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></symbol><symbol id="i-volume-2" viewBox="0 0 24 24"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />  <path d="M16 9a5 5 0 0 1 0 6" />  <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" />  <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol></svg>
 <main id="m"></main>
 <nav class="bar" aria-label="Secciones">
 <div class="pill" id="tb"><i class="ind" id="tind"></i>
 <button data-t="aprender" onclick="tab('aprender')"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/></svg>Aprender</button>
 <button data-t="jugar" onclick="tab('jugar')"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7.5 10.5v4M5.5 12.5h4"/><circle cx="15.5" cy="11.5" r=".9"/><circle cx="17.8" cy="13.8" r=".9"/></svg>Jugar</button>
 <button data-t="yo" onclick="tab('yo')"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg>Yo</button>
+<button class="go" id="go" onclick="study()" aria-label="Estudiar ahora"><span class="gob"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>Estudiar</button>
 </div>
-<button class="go" id="go" onclick="study()" aria-label="Estudiar ahora"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg></button>
 </nav>
 <div id="ov" class="ov" hidden><div class="oh"><button class="x" onclick="quit()" aria-label="Cerrar">✕</button><div class="pb"><i id="pbi"></i></div><div id="cmb"></div></div><div id="lb"></div><div id="ft"></div><div id="fbk" class="fbk"></div></div>
 <div id="sht" class="shb" hidden onclick="if(event.target===this)closeSheet()"><div class="sh" id="shc"></div></div>
@@ -543,7 +603,8 @@ function study(){closeSheet();const p=plan();if(p.t=='rev')startRev(0);else if(p
 let T='aprender';
 const VW={aprender,jugar,yo};
 const TORD=['aprender','jugar','yo'];
-function tab(t){const pv=T;T=t;const v=document.createElement('div');v.className='view'+(pv&&pv!==t?(TORD.indexOf(t)>TORD.indexOf(pv)?' fr':' fl'):'');v.innerHTML=VW[t]();$('#m').replaceChildren(v);
+function tab(t){if(window.VTI!==1&&T&&T!==t&&document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.vt=TORD.indexOf(t)>TORD.indexOf(T)?'r':'l';window.VTI=1;const x=document.startViewTransition(()=>tab(t));x.finished.finally(()=>{window.VTI=0});return}
+ const pv=T;T=t;const v=document.createElement('div');v.className='view'+(window.VTI!==1&&pv&&pv!==t?(TORD.indexOf(t)>TORD.indexOf(pv)?' fr':' fl'):'');v.innerHTML=VW[t]();$('#m').replaceChildren(v);
  document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));scrollTo(0,0);
  $('#go').classList.toggle('need',minDay(today())<S.gmin);
  setTimeout(()=>{const r=$('#rfg');if(r)r.style.strokeDashoffset=r.dataset.o},60);
@@ -610,7 +671,7 @@ function jugar(){const d=dueWords().length;let h=`<h1 class="ttl">Jugar</h1><p c
 
 function yo(){const lw=learned(),dom=lw.filter(w=>(S.box[w[0]]||0)>=2).length,st=streak();
  let h=`<div class="head"><span class="tc">${tuca('')}</span><div class="sp"><b>Cesar</b><span>${doneUnits()} ${doneUnits()==1?'ciudad visitada':'ciudades visitadas'} · ${Object.keys(S.badges).length} insignias</span></div></div>`;
- h+=`<div class="card"><div class="stg"><div><b>${lw.length}</b><span>palabras vistas · ${dom} firmes</span></div><div><b>${totalMin()}</b><span>minutos en total</span></div><div><b>🔥 ${st}</b><span>días seguidos</span></div><div><b>${Object.keys(S.prog).length}</b><span>de ${TOT()} sesiones</span></div></div></div>`;
+ h+=`<div class="card"><div class="stg"><div><b>${lw.length}</b><span>palabras vistas${dom?` · ${dom} dominadas`:""}</span></div><div><b>${totalMin()}</b><span>minutos en total</span></div><div><b>🔥 ${st}</b><span>días seguidos</span></div><div><b>${Object.keys(S.prog).length}</b><span>de ${TOT()} sesiones</span></div></div></div>`;
  const dn=['D','L','M','M','J','V','S'],mx=Math.max(S.gmin,...[0,1,2,3,4,5,6].map(i=>minDay(today()-i)));let ch='';
  for(let i=6;i>=0;i--){const v=minDay(today()-i),dt=new Date(Date.now()-i*864e5);ch+=`<div><small>${v||''}</small><i class="${v?'':'z'}" style="height:${Math.max(4,v/mx*90)}px;animation-delay:${(6-i)*.07}s"></i><span>${dn[dt.getDay()]}</span></div>`}
  h+=`<h2 class="sec">Minutos esta semana</h2><div class="card"><div class="chart">${ch}</div></div>`;
@@ -761,7 +822,7 @@ function finishMini(){$('#pbi').style.width='100%';setLb(endHTML('¡Listo!',Q.ti
  $('#ft').innerHTML=`<div class="row" style="margin:0"><button class="btn ghost" onclick="closeOv()">Salir</button><button class="btn" onclick="${Q.again}">Otra vez</button></div>`}
 
 /* ================= repaso con tarjetas ================= */
-function startRev(all){const ws=all?sh(learned().length?learned():P(0)).slice(0,12):dueWords().slice(0,15);if(!ws.length)return;openOv('rev');G={ws,i:0,ok:0};revCard()}
+function startRev(all){const ws=all?(learned().length?sh(learned()).sort((a,b)=>(S.box[a[0]]||0)-(S.box[b[0]]||0)||(S.miss[b[0]]||0)-(S.miss[a[0]]||0)):sh(P(0))).slice(0,12):dueWords().slice(0,15);if(!ws.length)return;openOv('rev');G={ws,i:0,ok:0};revCard()}
 function revCard(){if(G.i>=G.ws.length)return revEnd();const w=G.ws[G.i];$('#pbi').style.width=G.i/G.ws.length*100+'%';
  setLb(`<div class="tag">Repaso · ${G.i+1} de ${G.ws.length}</div><div class="fc" id="fc"><div class="fcf"><div class="pw">${esc(w[0])}</div><div class="pron">${esc(w[2])}</div><div class="hint" style="margin-top:20px">Toca para ver el significado</div></div><div class="fcb"><div class="emo sm">${em(w)}</div><div class="pw" style="font-size:1.8rem">${esc(w[1])}</div></div></div><div class="swh" id="swh" style="visibility:hidden"><span>← No me acordé</span><span>La sabía →</span></div>`);
  const fc=$('#fc');let sx=0,dx=0,drag=0;
@@ -870,11 +931,29 @@ function notes(u){openOv('notes');const l=L[u];
 /* ================= arranque ================= */
 if(location.hostname.endsWith('github.io')){
  [['manifest','manifest.webmanifest'],['apple-touch-icon','icon-180.png']].forEach(([r,h])=>{const l=document.createElement('link');l.rel=r;l.href=h;document.head.appendChild(l)});
- const m=document.createElement('meta');m.name='apple-mobile-web-app-capable';m.content='yes';document.head.appendChild(m);
- const m2=document.createElement('meta');m2.name='apple-mobile-web-app-title';m2.content='Tuca Idiomas';document.head.appendChild(m2);
  if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
  /* pide al iPhone que no borre el progreso guardado aunque falte espacio */
  try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{})}catch(e){}}
 loadLang(LG[ALL.lang]?ALL.lang:'pt');tab('aprender');checkBadges();
+</script>
+<script>
+/* Diseño 2: cambia los emojis del menú por iconos de línea. Las tarjetas de palabras (#ov) conservan sus emojis. */
+(function(){
+const I={'🃏':'layers','🗂':'book-open','💡':'lightbulb','💬':'message-circle','🏆':'trophy','🧩':'shuffle','⚡':'zap','🎧':'headphones','🤔':'target','👂':'volume-2','🎙':'mic','🚗':'car','📖':'book-open','🌱':'sparkles','🔥':'flame','📚':'book-open','🧠':'lightbulb','💎':'star','🎯':'target','🏅':'award','🗺':'map','🌍':'plane','🎮':'gamepad-2','⏱':'clock','🔒':'lock','📓':'notebook-pen','🛤':'route','▶':'play','🔊':'volume-2','🧭':'compass'};
+const K=Object.keys(I).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
+const RX=new RegExp('('+K+')\\uFE0F?','g'),RX1=new RegExp('('+K+')');
+const SKIP='.ut,.bubble,.wc,.exr,textarea,script,.cf';
+const ico=n=>'<svg class="li" aria-hidden="true"><use href="#i-'+n+'"/></svg>';
+function deco(root){if(!root)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),L=[];
+ while(w.nextNode()){const t=w.currentNode;if(RX1.test(t.nodeValue)&&!(t.parentNode.closest&&t.parentNode.closest(SKIP)))L.push(t)}
+ L.forEach(t=>{const sp=document.createElement('span');sp.innerHTML=t.nodeValue.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(RX,(m,e)=>ico(I[e]));sp.style.display='contents';t.replaceWith(sp)})}
+window.decoIcons=deco;
+['#m','#shc','#toast'].forEach(s=>{const el=document.querySelector(s);if(!el)return;deco(el);new MutationObserver(()=>deco(el)).observe(el,{childList:true,subtree:true})});
+/* sin el ejercicio abierto (#ov) solo decoramos los botones de pie y la cabecera de resultados */
+/* aviso si el iPhone no tiene la voz del idioma */
+const sheetOrig=window.sheet;
+window.vozAviso=function(){try{if(typeof V!=='undefined'&&!V&&speechSynthesis.getVoices().length)return '<div class="vnote">'+ico('info')+'<span>Tu iPhone no tiene la voz de este idioma. Agrégala en Ajustes › Accesibilidad › Contenido leído › Voces.</span></div>'}catch(e){}return ''};
+const VWa=VW.aprender;VW.aprender=function(){const h=VWa.apply(this,arguments),a=vozAviso();return a?a+h:h};
+})();
 </script>
 </body></html>
